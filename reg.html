@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <style>
+        .aaa {
+            margin-top: 40px; margin-left: 120px; border-radius: 10px; height: 60px; width: 300px; 
+            background-color: #BF4DB1; color: black;
+        }
+        .aaa:hover {
+            background-color: #ED1CD3;
+        }
+        .block {
+            margin-top: 100px;
+            margin-left: 370px;
+            background-color: white;
+            width: 550px;
+            height: 770px;
+            border-radius: 15px;
+        }
+        body {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function check2(el1) {
+    var a=0, b=0, c=0, d=0, e=0;
+    nam2 = el1.using2.value;
+    //nam3 = el1.using3.value;
+    nam4 = el1.using4.value;
+    nam5 = el1.using5.value;
+    nam6 = el1.using6.value;
+    if (nam2 > "" && nam4 > "" && nam5 > "" && nam6 > "" && (nam5 == nam6)) {
+        location.href='gl2.html';
+        //document.getElementById('error').innerHTML = q;
+        localStorage.setItem(nam4+"1",nam2);
+        localStorage.setItem("log",nam4);
+        localStorage.setItem(nam4, nam5);
+        var s="";
+        if (localStorage.getItem("name")!=null && localStorage.getItem("name")!=undefined) s=String(localStorage.getItem("name"));
+        localStorage.setItem("name",s+nam2+":");
+    }
+    else {
+
+        if (nam2 == ""){
+            a=1;
+            document.getElementById('error1').innerHTML = "введите имя";
+        }
+        //if (nam3 == ""){
+          //  document.getElementById('error2').innerHTML = "введите фамилию";
+        //}
+        if (nam4 == ""){
+            b=1;
+            document.getElementById('error3').innerHTML = "введите логин";
+        }
+        if (nam5 == ""){
+            c=1;
+            document.getElementById('error4').innerHTML = "введите пароль";
+        }
+        if (nam6 == ""){
+            d=1;
+            document.getElementById('error5').innerHTML = "введите подтверждение пароля";
+        }
+        else if (nam5 != nam6){
+            d=1;
+            document.getElementById('error5').innerHTML = "подтверждение пароля неверно";
+        }
+        if (a+b+c+d+e==1)
+        {
+            document.getElementById('user').style = "margin-top: 100px;margin-left: 370px;background-color: white;width: 550px;height: 580px;border-radius: 15px;";
+        }
+        if (a+b+c+d==2)
+        {
+            document.getElementById('user').style = "margin-top: 100px;margin-left: 370px;background-color: white;width: 550px;height: 600px;border-radius: 15px;";
+        }
+        if (a+b+c+d==3)
+        {
+            document.getElementById('user').style = "margin-top: 100px;margin-left: 370px;background-color: white;width: 550px;height: 620px;border-radius: 15px;";
+        }
+        if (a+b+c+d==4)
+        {
+            document.getElementById('user').style = "margin-top: 100px;margin-left: 370px;background-color: white;width: 550px;height: 640px;border-radius: 15px;";
+        }
+    }
+        return false;
+}
+    </script>
+    <form style="margin-top: 100px;
+    margin-left: 570px;
+    background-color: white;
+    width: 550px;
+    height: 560px;
+    border-radius: 15px;" onsubmit="return check2(this)" id = "user">
+        <label style="margin-left: 200px; font-size: 200%; font-family: Arial Black">register</label>
+        <input style="margin-top: 30px; border-color: black; border-right: 10px; border-top: 10px; border-left: 0px; margin-left: 30px; border-radius: 0px; height: 60px; width: 490px; background-color: white; color: black; font-size: 100%;" placeholder="введите имя" type="text" name="using2" id="name4">
+        <label for="text" style="color: red; margin-left: 30px" id="error1"></label>
+        <!--<input style="margin-top: 30px; border-color: black; border-right: 10px; border-top: 10px; border-left: 0px; margin-left: 30px; border-radius: 0px; height: 60px; width: 490px; background-color: white; color: black " placeholder="введите пароль" type="text" name="using3" id="name5">
+        <label for="text"style="color: red; margin-left: 30px" id="error2"></label>-->
+        <input style="margin-top: 30px; border-right: 10px; border-color: black; border-top: 10px; border-left: 0px; margin-left: 30px; border-radius: 0px; height: 60px; width: 490px; background-color: white; color: black; font-size: 100%;" placeholder="введите логин" type="text" name="using4" id="name6">
+        <label for="text"style="color: red; margin-left: 30px" id="error3"></label>
+        <input style="margin-top: 30px; border-color: black; border-right: 10px; border-top: 10px; border-left: 0px; margin-left: 30px; border-radius: 0px; height: 60px; width: 490px; background-color: white; color: black; font-size: 100%;" placeholder="введите пароль" type="password" name="using5" id="name7">
+        <label for="text"style="color: red; margin-left: 30px" id="error4"></label>
+        <input style="margin-top: 30px; border-color: black; border-right: 10px; border-top: 10px; border-left: 0px; margin-left: 30px; border-radius: 0px; height: 60px; width: 490px; background-color: white; color: black; font-size: 100%;" placeholder="введите подтверждение пароля" type="password" name="using6" id="name8">
+        <label for="text"style="color: red; margin-left: 30px" id="error5"></label>
+        
+        <button style="font-size: 100%; border-right: 10px; border-top: 10px; border-left: 0px;border-bottom: 0px;" class="aaa" type = "submit" name="submit1" >Зарегистрироватся</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <h1 id="error" style="color: red; margin-left: 500px;"></h1>
+    </form>
+   
+</body>
+</html>
