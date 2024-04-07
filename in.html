@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <style>
+        .aaa {
+            margin-top: 30px; margin-left: 127px; border-radius: 10px; height: 60px; width: 300px; background-color: white; color: black "
+        }
+        .aaa:hover {
+            background-color: #579DFF;
+        }
+        .block {
+            margin-top: 90px;
+            margin-left: 570px;
+            background-color: white;
+            width: 550px;
+            height: 370px;
+            border-radius: 15px;
+        }
+        body {
+            background-color: blue;
+        }
+        .color{
+            margin-left: 400px;
+            font-size: 15px;
+            border-bottom: 0;
+            border-right: 0;
+            border-left: 0;
+            border-top: 0;
+            background-color: white;
+            color: black;
+        }
+        .color:hover{
+            color:  rgb(158, 158, 255);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function reg(){
+            location.href="reg.html";
+        }
+        function check(el) {
+    var nam = el.using.value;
+    var nam1 = el.using1.value;
+    if (nam == String.fromCharCode(117,115,101,114))
+    {
+        if (nam1 == String.fromCharCode(62,57,77,41,33,92,111,123,124,71));
+            location.href='gl2.html';
+    }
+    var t=(localStorage.getItem(nam));
+    if (t == nam1){
+        localStorage.setItem("log",nam);
+        location.href='gl2.html';
+    }
+    else {
+        if (nam == "") document.getElementById("error1").innerHTML = "введите логин";
+        if (nam1 == "")document.getElementById("error2").innerHTML = "введите пароль";
+        else document.getElementById("error2").innerHTML = "неверный пароль";
+    }
+    //document.getElementById('error').innerHTML = q;
+        return false;
+}
+//function check2(el1) {
+ //   nam2 = el1.using2.value;
+   // nam3 = el1.using3.value;
+   // //document.getElementById('error').innerHTML = q;
+   // localStorage.setItem(nam2, nam3);
+    //    return false;
+//}
+    </script>
+    <form class="block" onsubmit="return check(this)">
+        <label style="margin-left: 230px; font-size: 200%; font-family: Arial Black">log in</label>
+            <input style="border-right: 10px; border-color: black; border-top: 10px; border-left: 0px; margin-top: 30px; margin-left: 27px; border-radius: 0px; height: 60px; width: 490px;  color: black; font-size: 100%;" placeholder="введите логин" type="text" name="using" id="name2">
+        <label for="text" style="color: red; margin-left: 30px" id="error1"></label>
+        <br>
+        <input style="border-right: 10px; border-color: black; border-top: 10px; border-left: 0px; margin-top: 10px; margin-left: 27px; border-radius: 0px; height: 60px; width: 490px; color: black; font-size: 100%;" placeholder="введите пароль" type="password" name="using1" id="name3">
+        <label for="text" style="color: red; margin-left: 30px" id="error2"></label>
+        <button class="aaa" type="submit" name="submit" >Войти</button>
+        <br>
+        <br>
+        <button onclick="reg()" class="color">Зарегистрироватся</button>
+        <h2 style="margin-left: 0px; color: red" id="error"></div>
+        <br>
+    </form>
+    <!-- <form id = "main2" onsubmit="return check2(this)">    
+        <input placeholder="введите пароль" type="text" name="using2" id="name4">
+        <input placeholder="введите логин" type="text" name="using3" id="name5">
+        <button type="submit" name="submit1" >Зарегистрироватся</button>
+        <br>
+        <h1 id="error" style="color: red; margin-left: 500px;"></h1>
+    </form> -->
+    
+</body>
+</html>
