@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <style>
+        .d{
+            color: rgb(114, 79, 240);
+
+        }
+    </style>
+</head>
+<body>
+    <table border="1" id="table"></table>
+        <input  value=""  type="text" name="using2" id="name4" style="margin-top: 910px; margin-left: 0px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; height: 30px;width: 1805px;" placeholder="enter username">
+        <button class="color" onclick="chat()" style="width: 30px;  height: 30px; margin-left: -6px; height: 36px;border-top-right-radius: 15px;border-bottom-right-radius: 15px"><img src="https://th.bing.com/th/id/OIP.CZyq2RKCntgH4cnXJfxo7wHaHa?pid=ImgDet&w=161&h=161&c=7" style="height: 20px; margin-top: -10px; margin-left: -5px;"></button>
+        
+        <script>
+            document.getElementById("table").innerHTML="";
+            
+            document.getElementById("table").style="border-bottom: 0;border-right: 0;border-left: 0;border-top: 0;background-color:white;";
+            var table = document.querySelector('#table');
+            var r;
+            t2 = (localStorage.getItem("log"));
+            t1 = (localStorage.getItem(t2+"1"));
+            
+             var q = t1;
+             var b=0;
+             console.log(document.getElementById("name4").value);
+             var f=localStorage.getItem("log1");
+             var kol=localStorage.getItem("kol"+q+f);
+        for (var t=1;t<=Number(kol);t++)
+        {
+    var email="";
+    if (localStorage.getItem(t+q+f)!=undefined)
+    {
+        email=localStorage.getItem(t+q+f);
+        r=1;
+    }
+    else
+    {
+        email=localStorage.getItem(t+f+q);
+        r=0;
+    }
+    for (var k = 0; k < 5; k++) {
+        var tr = document.createElement('tr');
+         tr.innerHTML = "";
+        //tr.style="margin-left: 100px";
+        
+        var td = document.createElement('td');
+        
+        d=email.length*5;
+        
+        
+        var s="<a style=' word-wrap: break-word;margin-left: 1680px;width:"+150+"px;background:#A173F0;padding: 5px;float: left;position: relative;border-radius: 15px;'>";
+            var o="<a style=' word-wrap: break-word;width:"+150+"px;"+"background: #A7C2C2;padding: 5px;float: left;position: relative;border-radius: 15px;'>";
+                s=s+email+"</a>";
+           o=o+email+"</a>";
+           console.log("s="+s);
+           if (r==1)  td.innerHTML=s;
+           else  td.innerHTML=o;
+           
+           td.style="border-bottom: 0;border-right: 0;border-left: 0;border-top: 0;background-color:white;";
+           //td.style=" border-bottom: 0;border-right: 0;border-left: 0;border-top: 0;background-color:white;";
+           
+           
+           tr.appendChild(td);
+           
+           
+           //document.getElementById('l').innerHTML="1";
+         
+        }
+        
+        table.appendChild(tr);
+        //document.getElementById("x").id=t;
+        
+        
+        
+    }
+    window.scrollTo(0,10000000000000000000000);
+ function chat(){
+            t2 = (localStorage.getItem("log"));
+             t1 = (localStorage.getItem(t2+"1"));
+        
+             var q = t1;
+             var b=0;
+            console.log(document.getElementById("name4").value);
+            var f=localStorage.getItem("log1");
+            var kol=localStorage.getItem("kol"+q+f);
+            kol=Number(kol);
+            kol+=1;
+            console.log(kol);
+            localStorage.setItem("kol"+q+f,kol);
+            localStorage.setItem("kol"+f+q,kol);
+            q=String(q);
+            f=String(f);
+            kol=String(kol);
+            localStorage.setItem(kol+q+f,document.getElementById("name4").value);
+            document.getElementById("name4").value="";
+
+            document.getElementById("table").innerHTML="";
+            
+            document.getElementById("table").style="border-bottom: 0;border-right: 0;border-left: 0;border-top: 0;background-color:white;";
+            var table = document.querySelector('#table');
+            var r;
+         for (var t=1;t<=Number(kol);t++)
+ {
+    var email="";
+    if (localStorage.getItem(t+q+f)!=undefined)
+    {
+        email=localStorage.getItem(t+q+f);
+        r=1;
+    }
+    else
+    {
+        email=localStorage.getItem(t+f+q);
+        r=0;
+    }
+     for (var k = 0; k < 5; k++) {
+         var tr = document.createElement('tr');
+         tr.innerHTML = "";
+         tr.style="margin-left: 100px";
+         
+         
+         var td = document.createElement('td');
+        
+         
+         d=email.length*5;
+         d=150;
+        
+         var s="<a style='word-wrap: break-word;margin-left: 1680px;width:"+150+"px;background:#A173F0;padding: 5px;float: left;position: relative;border-radius: 15px;'>";
+        //var o="<a style='word-wrap: break-word;width:"+150+";"+"background: #A7C2C2;padding: 5px;float: left;position: relative;border-radius: 15px;'>";
+        var o="<a style='word-wrap: break-word;width:"+150+"px;"+"background: #A7C2C2;padding: 5px;float: left;position: relative;border-radius: 15px;'>";
+           s=s+email+"</a>";
+           o=o+email+"</a>";
+            console.log("s="+s);
+           if (r==1)  td.innerHTML=s;
+           else  td.innerHTML=o;
+
+         td.style="border-bottom: 0;border-right: 0;border-left: 0;border-top: 0;background-color:white;";
+         
+         tr.appendChild(td);
+
+         
+         //document.getElementById('l').innerHTML="1";
+        
+        }
+        
+        table.appendChild(tr);
+       
+
+     
+ }
+        }
+    </script>
+</body>
+</html>
