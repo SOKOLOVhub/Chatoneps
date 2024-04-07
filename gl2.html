@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+
+    <style>
+        .color{
+            background-color: #FFBC47;
+        }
+        .color:hover{
+            background-color: #eca01b;
+        }
+        .color2{
+            font-weight: bold;
+            height: 40px;
+            margin-left: 200px;
+            background-color: rgb(5, 212, 5);
+            color: white;
+            border-radius: 15px;
+        }
+        .color2:hover{
+            background-color: rgb(7, 189, 7);
+        }
+        .color3{
+            font-size: 20px;
+            border-bottom: 0;
+            border-right: 0;
+            border-left: 0;
+            border-top: 0;
+            background-color: white;
+            color: black;
+        }
+        .color3:hover{
+            color:  rgb(158, 158, 255);
+        }
+        .lvl {
+            float: left;
+            float: bottom;
+	height: 45px;
+	width: 45px;
+	line-height: 45px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 50%;
+	border: 2px solid #637074;
+	font-weight: 700;
+	font-size: 18px;
+	color: white;
+    background-color: rgb(0, 195, 255);
+}
+.lvl1 {
+            float: left;
+            
+	height: 30px;
+	width: 30px;
+	line-height: 30px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 50%;
+	border: 2px solid #637074;
+	font-weight: 700;
+	font-size: 15px;
+	color: white;
+    background-color: rgb(0, 195, 255);
+    
+}
+        </style>
+
+</head>
+<body>
+    <!--<a style="font-size: 20px;" id="name"></a>-->
+    
+    <a id="krug" style="margin-left: 10px;margin-top: 15px;" class="lvl">0</a>
+    <a id="nik_name" style="margin-left: 10px;font-weight: 700;font-size: 20px;"></a>
+
+
+    <a id="C" style="font-size: 50px;color: green;">C</a>
+    <a style="font-size: 50px;color: red;">h</a>
+    <a style="font-size: 50px;color: blue;">a</a>
+    <a style="font-size: 50px;color:darkorange">t</a>
+    <a style="font-size: 50px;color:aqua;">o</a>
+    <a style="font-size: 50px;color:yellowgreen">n</a>
+    <a style="font-size: 50px;color:gold">e</a>
+    <a style="font-size: 50px;color:lime">p</a>
+    <a style="font-size: 50px;color: violet;">s</a>
+
+    <script>
+        t2 = (localStorage.getItem("log"));
+        t1 = (localStorage.getItem(t2+"1"));
+
+        var q = t1;
+        var b=0;
+
+        var z=String(700);
+        z="margin-left: "+z+"px;font-size: 50px;color: green;";
+        document.getElementById("C").style=z;
+
+    </script>
+
+    <button onclick="in1()" style="margin-left: 620px;" class="color3">in</button>
+    <a style="margin-left: -6px; font-size: 20px; font-weight: bold;">|</a>
+    <button onclick="out()" style="margin-left: -6px;" class="color3">out</button>
+    <form onclick="return search(this)"  id="user">
+        <input  type="text" name="using2" id="name4" style="margin-left: 480px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; height: 30px;width: 600px;" placeholder="enter username">
+        <button  class="color" style="margin-left: -6px; height: 36px;border-top-right-radius: 15px;border-bottom-right-radius: 15px" type = "submit" name="submit1">search</button>
+        <button class="color2" onclick="freunde()">your interlocutors</button>
+    </form>
+    <table border="1" id="table1"></table>
+    <table border="1" id="table"></table>
+
+
+    <br>
+    <br>
+        <script>
+             t2 = (localStorage.getItem("log"));
+             t1 = (localStorage.getItem(t2+"1"));
+        
+             var q = t1;
+             var b=0;
+             document.getElementById("krug").innerHTML=q[0];
+             document.getElementById("nik_name").innerHTML=q;
+            function dob(el2){
+                console.log(el2.id);
+                console.log(document.getElementById(String(el2.id)+"a").innerHTML);
+                var h="";
+                var kol="";
+                var fr=document.getElementById(String(el2.id)+"a").innerHTML;
+                h=localStorage.getItem("freund"+q);
+                kol1=localStorage.getItem("kol_f"+q);
+                h1=localStorage.getItem("freund"+fr);
+                kol=localStorage.getItem("kol_f"+fr);
+                localStorage.setItem("freund"+q,h+":"+document.getElementById(String(el2.id)+"a").innerHTML);
+                localStorage.setItem("freund"+fr,h1+":"+q);
+                localStorage.setItem("kol_f"+q,kol+1);
+                localStorage.setItem("kol_f"+fr,kol1+1);
+            }
+            function chat(el2){
+                console.log("id=",el2.id);
+                localStorage.setItem("log1",el2.id);
+                location.href="chat.html";
+                
+            }
+
+            function out(){
+                location.href="Chatoneps.html";
+            }
+            //document.getElementById("name").innerHTML=localStorage.getItem("log");
+            
+            function search(el1){
+                var i, j;
+                var w=0;
+            var f=[];
+            var g=[];
+            var r=0;
+                nam4 = el1.using2.value;
+                var s=localStorage.getItem("name");
+                f[0]="";
+                for (i=0;i<s.length;i++)
+                {
+                    if (s[i]==':') 
+                    {
+                        w++;
+                        f[w]="";
+                    }
+                    else f[w]+=s[i];
+                }
+                nam4=String(nam4);
+                var flag=0;
+                for (i=0;i<w;i++)
+                {
+                    //console.log("nam4="+nam4.length);
+                    for(j=0;j<nam4.length;j++)
+                    {
+                        
+                        //console.log(f[i][j]);
+                        if (nam4[j]==f[i][j])
+                        {
+                            
+                        }
+                        else flag=1;
+                    }
+                    if (flag==0) g[r++]=f[i];
+                    flag=0;
+                }
+                if (nam4!="")
+                {
+                    document.getElementById("table1").innerHTML="";
+                    t2 = (localStorage.getItem("log"));
+                    t1 = (localStorage.getItem(t2+"1"));
+                    
+                var q = t1;
+                var b=0;
+                var y=[];
+                var l=0;
+                var s="";
+                if (localStorage.getItem("freund"+q)!=null)  s=localStorage.getItem("freund"+q);
+                console.log("s="+s);
+
+                var i, j;
+                y[0]="";
+
+                for (i=0;i<s.length;i++)
+                {
+                    if (s[i]!=':') y[l]+=s[i];
+                    else 
+                    {
+                        l++;
+                        y[l]="";
+                    }
+                }
+
+                for (i=0;i<r;i++)
+                {
+                    console.log(g[i]);
+                }
+                    for (i=0;i<r;i++)
+                    {
+                        if (g[i]==q) g[i]="";
+                        for (j=1;j<l+1;j++)
+                        {
+                            if (g[i]==y[j]) g[i]="";
+                        }
+                    }
+                    var o=[];
+                    var u=0;
+                    console.log("r="+r);
+                    for (i=0;i<r;i++)
+                    {
+                        if (g[i]!="")
+                        {
+                            o[u++]=g[i];
+                        }
+                    }
+                    r=u;
+                    for (i=0;i<r;i++)
+                    {
+                        g[i]=o[i];
+                    }
+
+                    document.getElementById("table").innerHTML="";
+            document.getElementById("table").innerHTML="";
+            
+            document.getElementById("table").style="margin-left: 540px; border-bottom: 0;border-right: 0;border-left: 0;border-top: 0;background-color:white;";
+            var table = document.querySelector('#table');
+         for (var t=0;t<r;t++)
+ {
+ 
+     
+     if (g[t]!="u")
+     {
+        for (var k = 0; k < 5; k++) {
+            var tr = document.createElement('tr');
+         tr.innerHTML = "";
+         
+         //style='margin-left: 10px;margin-bottom: 30px;'
+         var td = document.createElement('td');
+         td.innerHTML="<a class='lvl1'>"+g[t][0]+"</a>";
+         td.style="border-top-left-radius: 15px;border-bottom-left-radius: 15px;width: 550px;  border-color: black;";
+         tr.appendChild(td);
+         var td = document.createElement('td');
+         td.innerHTML=" <a style='margin-left: -510px;' id='t'>"+g[t]+"</a>";
+         td.style="border-left: 0; border-right: 0; border-top: 0; border-bottom: 0; border-color: black;";
+         tr.appendChild(td);
+         var td = document.createElement('td');
+         td.style=" border-left: 0; border-right: 0; border-top: 0; border-bottom: 0; border-top-right-radius: 15px;border-bottom-right-radius: 15px;";
+         td.innerHTML="<button id='x' onclick='dob(this)' style=' margin-left: -7px;background-color: white;border-top-right-radius: 15px;border-bottom-right-radius: 15px;width: 50px;height: 40px;'>+</button>";
+         
+         tr.appendChild(td);
+         
+         //document.getElementById('l').innerHTML="1";
+        
+     }
+     
+    }
+     table.appendChild(tr);
+     document.getElementById("x").id=t;
+     document.getElementById("t").id=String(t)+"a";
+     
+    }
+ 
+    
+
+}
+
+                el1.using2.value= "";
+                
+                    return false;
+            }
+            function freunde(){
+
+                var y=[];
+                var l=0;
+
+                var s=localStorage.getItem("freund"+q);
+                console.log(s);
+
+                var i, j;
+                y[0]="";
+
+                for (i=0;i<s.length;i++)
+                {
+                    if (s[i]!=':') y[l]+=s[i];
+                    else 
+                    {
+                        l++;
+                        y[l]="";
+                    }
+                }
+
+                for (i=1;i<l+1;i++)
+                {
+                    console.log(y[i]);
+                }
+
+                document.getElementById("table1").innerHTML="";
+            
+            document.getElementById("table1").style="margin-left: 540px; border-bottom: 0;border-right: 0;border-left: 0;border-top: 0;background-color:white;";
+            var table = document.querySelector('#table1');
+         for (var t=1;t<=l;t++)
+ {
+ 
+    
+     for (var k = 0; k < 5; k++) {
+         var tr = document.createElement('tr');
+         tr.innerHTML = "";
+         
+         
+         
+         var td = document.createElement('td');
+         td.style="border-radius: 15px; border-bottom: 0;border-right: 0;border-left: 0;border-top: 0;";
+         td.innerHTML="<button id='h' onclick='chat(this)' style='text-align: left; background-color: white;border-radius: 15px;width: 500px;height: 50px;'>"+"<a style='margin-left: 0px;' class='lvl1'>"+y[t][0]+"</a>"+"<br>"+"<br>"+y[t]+"</button>";
+         
+         tr.appendChild(td);
+         
+         //document.getElementById('l').innerHTML="1";
+        
+        }
+        
+        table.appendChild(tr);
+        document.getElementById("h").id=y[t];
+
+     
+ }
+ 
+ 
+
+}
+            
+            </script>
+
+</body>
+</html>
